@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mac-dks</title>
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/iconmac1.png')}}" />
+    <style>
+        img {
+            width: 180px;
+            height: 80px;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: rgb(255, 119, 0);
+            position: relative;
+        }
+        .search-container {
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+            border-radius: 30px;
+            width: 70%;
+            height: 70%;
+        }
+        .search-bar {
+            width: 300px;
+            height: 40px;
+            padding: 10px;
+            border: 2px solid #ccc;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .search-button {
+            background-color: rgb(208, 82, 9);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        h1 {
+            color: rgba(41, 59, 41, 0.925);
+        }
+        hr {
+            width: 30%; /* Define a largura média */
+            border: 3px solid #ff9900; /* Cor e espessura da linha */
+            margin: 10px auto; /* Centraliza a linha e dá espaço acima/abaixo */
+        }
+    </style>
+</head>
+<body>
+    <img src="{{url_for('static', filename='assets/lododk.png')}}" alt="Logo D-kiros">
+    <div class="search-container">
+        <h1>MAC Adress</h1>
+        <form action="{{url_for('pesquisa')}}" method="post">
+            <input type="text" name="pesquisa" class="search-bar" value="{{pesquisa}}" placeholder="Digite o MAC" required>
+            <button type="submit" class="search-button">Pesquisar</button>
+        </form>
+        <h3>{{vendor}}</h3>
+        <hr> <!-- Linha abaixo do h2 -->
+    </div>
+</body>
+</html>
