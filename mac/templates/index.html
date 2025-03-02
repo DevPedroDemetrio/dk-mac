@@ -7,8 +7,8 @@
     <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/iconmac1.png')}}" />
     <style>
         img {
-            width: 180px;
-            height: 80px;
+            width: 150px;
+            height: auto;
             position: absolute;
             top: 10px;
             left: 10px;
@@ -22,22 +22,29 @@
             font-family: Arial, sans-serif;
             background-color: rgb(255, 119, 0);
             position: relative;
+            padding: 20px; /* Para melhorar visualização em telas menores */
+            box-sizing: border-box;
         }
         .search-container {
             text-align: center;
             background-color: rgb(255, 255, 255);
             border-radius: 30px;
-            width: 70%;
-            height: 70%;
+            width: 90%;
+            max-width: 600px; /* Define limite de largura */
+            height: 60%;
+            padding: 10px;
+            box-sizing: border-box;
         }
         .search-bar {
-            width: 300px;
+            width: 100%;
+            max-width: 300px;
             height: 40px;
             padding: 10px;
             border: 2px solid #ccc;
             border-radius: 20px;
             margin-bottom: 10px;
             font-size: 16px;
+            box-sizing: border-box;
         }
         .search-button {
             background-color: rgb(208, 82, 9);
@@ -52,16 +59,29 @@
             color: rgba(41, 59, 41, 0.925);
         }
         hr {
-            width: 30%; /* Define a largura média */
+            width: 50%; /* Define largura média */
             border: 3px solid #ff9900; /* Cor e espessura da linha */
-            margin: 10px auto; /* Centraliza a linha e dá espaço acima/abaixo */
+            margin: 10px auto;
+        }
+        /* Media queries para telas menores */
+        @media (max-width: 480px) {
+            img {
+                width: 120px; /* Ajuste tamanho do logo */
+            }
+            .search-button {
+                padding: 10px 15px;
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
 <body>
     <img src="{{url_for('static', filename='assets/lododk.png')}}" alt="Logo D-kiros">
     <div class="search-container">
-        <h1>MAC Adress</h1>
+        <h1>MAC Address</h1>
         <form action="{{url_for('pesquisa')}}" method="post">
             <input type="text" name="pesquisa" class="search-bar" value="{{pesquisa}}" placeholder="Digite o MAC" required>
             <button type="submit" class="search-button">Pesquisar</button>
